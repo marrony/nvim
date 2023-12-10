@@ -41,4 +41,6 @@ return require('packer').startup(function(use)
   -- status bar
   use { 'nvim-lualine/lualine.nvim' }
   use { 'nvim-tree/nvim-web-devicons' }
+
+  use { 'numToStr/Comment.nvim' }
 end)

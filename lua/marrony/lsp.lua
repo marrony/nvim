@@ -18,6 +18,7 @@ lsp_zero.on_attach(function(client, buff)
   local opts = { buffer = buff, remap = false }
 
   lsp_zero.default_keymaps(opts)
+  lsp_zero.buffer_autoformat()
 
   --vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   --vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -30,7 +31,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'clangd' },
+  ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'clangd', 'cssls' },
   handlers = {
     lsp_zero.default_setup,
   },
@@ -40,7 +41,8 @@ lsp_zero.setup_servers({
   'tsserver',
   'eslint',
   'lua_ls',
-  'clangd'
+  'clangd',
+  'cssls'
 })
 
 lsp_zero.format_on_save({
@@ -49,9 +51,10 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['tsserver'] = { 'javascript', 'typescript' },
-    ['clangd'] = { 'c' },
+    ['tsserver'] = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+    ['clangd'] = { 'c', 'cpp' },
     ['lua_ls'] = { 'lua' },
+    ['cssls'] = { 'css', 'scss', 'less' }
   }
 })
 
