@@ -13,3 +13,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- copy to clipboard
 vim.keymap.set("v", "<C-c>", '"+y')
+
+vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
