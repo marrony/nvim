@@ -36,11 +36,11 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'tsserver',
-    'eslint',
     'clangd',
-    'cssls',
     'zls',
+    'ts_ls',
+    'eslint',
+    'cssls',
   },
   handlers = {
     lsp_zero.default_setup,
@@ -48,12 +48,12 @@ require('mason-lspconfig').setup({
 })
 
 lsp_zero.setup_servers({
-  'tsserver',
-  'eslint',
   'lua_ls',
   'clangd',
+  'zls',
+  'ts_ls',
+  'eslint',
   'cssls',
-  'zls'
 })
 
 lsp_zero.format_on_save({
@@ -62,10 +62,10 @@ lsp_zero.format_on_save({
     timeout_ms = 10000,
   },
   servers = {
-    ['tsserver'] = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
     ['clangd'] = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    ['lua_ls'] = { 'lua' },
-    ['cssls'] = { 'css', 'scss', 'less' }
+    -- ['ts_ls'] = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    -- ['lua_ls'] = { 'lua' },
+    -- ['cssls'] = { 'css', 'scss', 'less' }
   }
 })
 
